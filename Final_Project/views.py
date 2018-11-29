@@ -59,3 +59,5 @@ def user_login(request):
   else:
     return render(request, 'Final_Project/login.html', {})
 
+def map(request):
+  return render(request, 'Final_Project/map.html')
