@@ -7,6 +7,7 @@ let map = new google.maps.Map(document.getElementById('map'), {
   });
 
 
+
 function geoString(inputFieldData) {
   let newInputFieldStr = '';
   for (var i = 0; i < inputFieldData.length; i += 1) {
@@ -41,21 +42,37 @@ $('.geoCodingForm').on('submit', function(e) {
 
 
 function addressSuccess(response) {
+
   let latitudeLocation = response.results[0].geometry.location.lat;
   let longitudeLocation = response.results[0].geometry.location.lng;
-  console.log(`The Latitude is ${latitudeLocation} and the longitude is ${longitudeLocation}` )
-  let latlng = {lat: latitudeLocation, lng: longitudeLocation}
-  let map = new google.maps.Map(document.getElementById('map'), {
-    center: latlng,
-    zoom: 10
-  });
+  $.ajax({
+    method: "GET",
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitudeLocation},${longitudeLocation}&radius=18000&type=gym&keyword=fitness&key=${apiKey}`,
+    success: gymLoader,
+    error: function onError(err1, err2, err3) {
+      console.log(err2);
+      console.log('NO GYM BITCH')
+    }
+  })
 
-  let marker = new google.maps.Marker({
+  function gymLoader(feedback) {
+    console.log(feedback)
+    console.log('gyms loading')
+    let map = new google.maps.Map(document.getElementById('map'), {
+      center: latlng,
+      zoom: 10
+    });
+      let marker = new google.maps.Marker({
       position: latlng,
       map: map,
       title: "Marker Example"
   })
+  }
+  console.log(`The Latitude is ${latitudeLocation} and the longitude is ${longitudeLocation}` )
+  let latlng = {lat: latitudeLocation, lng: longitudeLocation}
+
   document.forms['addressForm'].reset()
 }
 
 })
+

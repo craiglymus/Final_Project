@@ -1,6 +1,12 @@
 {% extends "Final_Project/base.html" %}
 {% block map %}
-
+<header class='siteHeader'>
+        <h1 class='siteTitle'>Find A Gym Near You</h1>
+    </header>
+    <form class='geoCodingForm' name='addressForm'>
+        <input class='addressBar' name='address' type='text' placeholder='Enter A Location...'>
+        <input type='submit' placeholder='search'>
+    </form>
     <div id="map"></div>
 
     
