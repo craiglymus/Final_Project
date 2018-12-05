@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from Final_Project.forms import UserForm, UserProfileInfoForm
+from Final_Project.models import Like, User 
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
   return render(request, 'Final_Project/index.html')
@@ -61,3 +64,30 @@ def user_login(request):
 
 def map(request):
   return render(request, 'Final_Project/map.html')
+
+def about(request):
+  return render(request, 'Final_Project/about.html')
+
+@login_required
+@csrf_exempt
+def like(request):
+    print('enters like function')
+    if request.method == "POST":
+      print(request.user)
+      print('THIS IS THE DATA THAT IS SENT OVER')
+      # print(request.body)
+      name = request.POST.get('name')
+      phone = request.POST.get('phone')
+      address = request.POST.get('address')
+      website = request.POST.get('website')
+      print(request.POST.get('name'))
+      like = Like(name = name, website = website, phone = phone, user = request.user)
+      like.save()
+      likes = list(Like.objects.all().values('gym', 'name', 'website', 'phone', 'user'))
+
+      return JsonResponse({'likes': likes})
+
+def sendJsonLikes(request):
+    likes = list(Like.objects.all().values('gym', 'name', 'website', 'phone', 'user'))
+    print(likes)
+    return JsonResponse({'likes':likes})

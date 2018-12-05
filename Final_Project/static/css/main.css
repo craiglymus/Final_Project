@@ -1,3 +1,78 @@
+/* =========== */
+/* FONT SETUP  */
+/* =========== */
+
+
+
+
+/* =========== */
+/* BASE STYLES */
+/* =========== */
+
+body{
+  font-family: 'Roboto Slab', serif;
+  margin: 0;
+}
+
+
+
+/* ==================== */
+/* HEADER/FOOTER STYLES */
+/* ==================== */
+
+.navbar {
+  background: #F5F5F5;
+  height: 8rem;
+}
+
+.header {
+  display: flex;
+  font-size: 22px;
+  position: relative;
+  margin: 0 auto 0;
+  padding-top: 0px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  width: 50%;
+}
+
+.nav-link {
+  background: none!important;
+  color: #3f6fa0;
+  border: none; 
+  padding: 20px;
+  font: inherit;
+  text-decoration: none;
+  padding-top: 100px;
+}
+
+ul li{
+  list-style-type: none;
+}
+
+li a{
+  text-decoration: none;
+  color: red;
+}
+
 #map{
   height: 600px;
 }
+
+
+/* =========== */
+/* FORM STYLES */
+/* =========== */
+
+
+
+/* ============*/
+/* ABOUT STYLES*/
+/* ============*/

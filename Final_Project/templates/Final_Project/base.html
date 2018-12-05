@@ -6,26 +6,27 @@
     <meta charset="utf-8">
     <title>Base</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
-    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places" defer></script>
     <script src="{% static 'scripts/app.js' %}" defer></script>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
 </head>
   <body>
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <ul class="nav navbar-nav">
+        <ul class="header">
           {# Django Home Link / Admin Link / Register Link#}
-          <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
-          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-          <li><a class="navbar-link" href="{% url 'register' %}">Register</a></li>     
+          <li><a id="" href="{% url 'index' %}">GymFinder</a></li>
+          <li><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="nav-link" href="{% url 'register' %}">Register</a></li>     
           {# Some logic on what to display for last item#}
           {% if request.user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
           {% else %}
-            <li><a class="navbar-link" href="{% url 'user_login' %}">Login</a></li>
+            <li><a class="nav-link" href="{% url 'user_login' %}">Login</a></li>
           {% endif %}
         </ul>
       </div>
@@ -34,6 +35,8 @@
     {% block content %}
     {% endblock %}
     {% block map %}
+    {% endblock %}
+    {% block about %}
     {% endblock %}
     </div>
   </body>

@@ -11,27 +11,32 @@ class UserProfileInfo(models.Model):
   def __str__(self):
     return self.user.username
 
-class Gym(models.Model):
-  name = models.CharField(max_length=45)
-  address = models.TextField()
-  phone = models.IntegerField()
-  photos = models.ImageField(upload_to=settings.MEDIA_ROOT, blank=True, null=True)
-  website = models.URLField(blank=True)
-  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='business')
+# class Gym(models.Model):
+#   name = models.CharField(max_length=45)
+#   address = models.TextField()
+#   phone = models.IntegerField()
+#   photos = models.ImageField(upload_to=settings.MEDIA_ROOT, blank=True, null=True)
+#   website = models.URLField(blank=True)
+#   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='business')
 
   def __str__(self):
     return self.user.username
 
-class  Like(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='currentuser')
-  gym = models.ForeignKey(Gym, on_delete=models.CASCADE, related_name='gym')
+class Like(models.Model):
+    gym = models.TextField()
+    name = models.CharField(max_length=45, null=True)
+    address = models.TextField(null=True)
+    website = models.URLField(null=True)    
+    phone = models.TextField(null=True)
+    gym_id = models.TextField(null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_name')
 
-  def __str__(self):
-    return self.user.username
+    def __str__(self):
+        return self.user.username
 
 class Comment(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-  gym = models.ForeignKey(Gym, on_delete=models.CASCADE, related_name='business')
+  gym = models.TextField()
 
   def __str__(self):
     return self.user.username
