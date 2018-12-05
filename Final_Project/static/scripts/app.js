@@ -47,7 +47,7 @@ function addressSuccess(response) {
   let longitudeLocation = response.results[0].geometry.location.lng;
   $.ajax({
     method: "GET",
-    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitudeLocation},${longitudeLocation}&radius=18000&type=gym&keyword=fitness&key=${apiKey}`,
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitudeLocation},${longitudeLocation}&radius=18000&type=gym&key=${apiKey}`,
     success: gymLoader,
     error: function onError(err1, err2, err3) {
       console.log(err2);

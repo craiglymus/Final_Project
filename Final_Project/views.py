@@ -91,3 +91,16 @@ def sendJsonLikes(request):
     likes = list(Like.objects.all().values('gym', 'name', 'website', 'phone', 'user'))
     print(likes)
     return JsonResponse({'likes':likes})
+
+def profile_view(request):
+
+    likes = Like.objects.all()
+    likes_list = []
+    for like in likes:
+        if like.user == request.user:
+            likes_list.append(like)
+
+    user = request.user
+    print(likes_list)
+    return render(request, 'Final_Project/profile_view.html', {'user': user ,'likes_list':likes_list})
+

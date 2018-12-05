@@ -15,5 +15,6 @@ urlpatterns=[
     path('about', views.about, name='about'),
     path('like', views.like, name='like'),
     path('api/likes', views.sendJsonLikes, name='sendJsonLikes'),
+    path('profile', views.profile_view, name='profile_view'),
 
 ]
