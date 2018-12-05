@@ -45,7 +45,7 @@ nav ul {
 
 .nav-link {
   background: none!important;
-  color: #3f6fa0;
+  color: #2a4a6f;
   border: none; 
   padding: 20px;
   font: inherit;
@@ -76,3 +76,15 @@ li a{
 /* ============*/
 /* ABOUT STYLES*/
 /* ============*/
+
+
+
+
+
+/* ============*/
+/* PROFILE STYLES*/
+/* ============*/
+
+.hiddenMap {
+  display: none;
+}

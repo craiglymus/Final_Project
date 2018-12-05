@@ -73,6 +73,8 @@ def about(request):
 def like(request):
     print('enters like function')
     if request.method == "POST":
+      # if form.is_valid:
+      #   post = form.save(commit=False)
       print(request.user)
       print('THIS IS THE DATA THAT IS SENT OVER')
       # print(request.body)
@@ -103,4 +105,14 @@ def profile_view(request):
     user = request.user
     print(likes_list)
     return render(request, 'Final_Project/profile_view.html', {'user': user ,'likes_list':likes_list})
+
+
+@csrf_exempt
+def delete(request):
+  print('entered delete function')
+  gym_delete_id = request.DELETE.get('id')
+  if request.method == 'DELETE':
+    gym_delete = Like.objects.filter(id=gym_delete_id, user=request.user.id)
+    gym_delete.delete()
+  return HttpResponse('dislike object deleted')
 

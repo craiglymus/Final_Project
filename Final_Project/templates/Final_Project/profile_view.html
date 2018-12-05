@@ -2,23 +2,32 @@
 ​
 {% block profile_view %}
 <body>
+<div class='hiddenMap' id="map"></div>
 <div class ="profile_container">
   <div class="profile_header_info">
     <div class='picNameSubscribe'>
       <div class='profilePicAndInfo'>
       <div class='profilePicture'>
-        <img class='profilePic' src='{{ user.profile.profile_pic.url }}' width="auto" height="250px" alt="">
+        <h1>{{user.profile_pic}}</h1>
+        <img class='profilePic' src='{{ user.userProfileInfo.profile_pic.url }}' width="auto" height="250px" alt="">
       </div>
       </div>
     </div>
   </div>
   <div class='profileLikes'>
     <h2>My Gyms</h2>
-    <div class='profileVideoContainer'>
+    <div class='profileContainer'>
+
       {% for like in likes_list %}
-      <h4>{{like.name}}</h4>
+      <section class="likeCard" data-id={{like.id}}>
+      <h4 class='likeId' data-id={{like.id}}>{{like.name}}</h4>
       <h4>{{like.phone}}</h4>
-      <h4><a href="{{like.website}}">{{like.website}}</a></h4>
+      <h4><a class=userId data-id='{{request.user.id}}' href="{{like.website}}">{{like.website}}</a></h4>
+      
+      <div class='deleteButtonSection'>
+       
+    </div>
+    </section>
       {% endfor %}
   </div>
 </div>  

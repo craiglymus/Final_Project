@@ -1,11 +1,12 @@
 const apiKey = `AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg`
 const geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?`
 
+let deleteEndpoint = 'http://localhost:8000/delete'
+
 let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 38.397, lng: -100.644},
     zoom: 4.5
   });
-
 
 
 function geoString(inputFieldData) {
@@ -128,6 +129,14 @@ $('div').on('click', '.favorite', function(e) {
 
 })
 
+let $cards = $('.likeCard')
+
+$cards.each(function () {
+  let cardId = $(this).data()
+  let button = `<button data-id=${cardId.id}>DELETE</button>`
+    $(this).append(button);
+});
+
 function stargym(answer) {
   console.log(answer)
   let name = answer.result.name
@@ -151,4 +160,79 @@ function stargym(answer) {
     }
   })
 }
+
+// $(document).on('click', '.deleteButton', function(e) {
+//   console.log('hELLLOOOOO')
+//   e.preventDefault();
+  
+//   let deleteID = $(this).attr('data-id');
+//   console.log('id here >>> ' + deleteID)
+  
+//   // debugger;
+
+//   $.ajax({
+//     method: 'DELETE',
+//     url: deleteEndpoint,
+//     data: deleteID,
+//     success: function deleteGym(){
+//       console.log(success)
+//     },
+//     error: function onError(err1, err2, err3) {
+//       console.log(err1)
+//       console.log(err3)
+//     }
+
+//   })
+
+
+
+
+// });
+
+
+$.ajax({
+  method: 'GET',
+  url: 'http://localhost:8000/api/likes',
+  success: deleteLike,
+  error: function onError(err1, err2, err3) {
+    console.log(err1)
+    console.log(err2)
+    console.log(err3)
+  }
+})
+
+
+
+
+
+function deleteLike(response) {
+  console.log(response)
+  for(var i = 0; i < response.likes.length; i += 1) {
+    var currentGym = response.likes[i]
+    if($('.userId').attr('data-id') == currentGym.user) {
+      // for (var j = 0; j < response)
+    }
+
+  }
+}
+
+// $('.deleteForm').on('submit', '.deleteButton', function(e) {
+// $('form').preventDefault()
+// alert('helloo')
+// let deleteID = $(this).attr('data-id')
+// $.ajax({
+//     method: "DELETE",
+//     url: deleteEndpoint,
+//     data: deleteID,
+//     success: function deleteSuccess(response) {
+//       console.log(success)
+//     },
+//     error: function(err1, err2, err3) {
+//       console.log(err1)
+//       console.log(err2)
+//       console.log(err3)
+//     }
+// })
+
+// });
 
