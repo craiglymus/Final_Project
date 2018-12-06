@@ -1,7 +1,7 @@
 const apiKey = `AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg`
 const geoUrl = `https://maps.googleapis.com/maps/api/geocode/json?`
 
-let deleteEndpoint = 'http://localhost:8000/delete'
+let deleteEndpoint = 'http://localhost:8000/like'
 
 let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 38.397, lng: -100.644},
@@ -131,11 +131,41 @@ $('div').on('click', '.favorite', function(e) {
 
 let $cards = $('.likeCard')
 
+
 $cards.each(function () {
   let cardId = $(this).data()
-  let button = `<button data-id=${cardId.id}>DELETE</button>`
+  console.log(cardId)
+  let button = `<button class="deleteButton" data-id=${cardId.id}>DELETE</button>`
     $(this).append(button);
+
+
+
+
+
+
+
 });
+
+
+$('.deleteButton').on('click', function(e) {
+  e.preventDefault()
+  let cardId = ($(this).data())
+  console.log(cardId.id)
+  $(this).parent().empty()
+
+  $.ajax({
+    method: "DELETE",
+    url: `${deleteEndpoint}/${cardId.id}/delete`,
+    success: function deleteSuccess(response) {
+      
+    },
+    error: function(err1, err2, err3) {
+      console.log(err1)
+      console.log(err2)
+      console.log(err3)
+    }
+})
+})
 
 function stargym(answer) {
   console.log(answer)
@@ -160,34 +190,6 @@ function stargym(answer) {
     }
   })
 }
-
-// $(document).on('click', '.deleteButton', function(e) {
-//   console.log('hELLLOOOOO')
-//   e.preventDefault();
-  
-//   let deleteID = $(this).attr('data-id');
-//   console.log('id here >>> ' + deleteID)
-  
-//   // debugger;
-
-//   $.ajax({
-//     method: 'DELETE',
-//     url: deleteEndpoint,
-//     data: deleteID,
-//     success: function deleteGym(){
-//       console.log(success)
-//     },
-//     error: function onError(err1, err2, err3) {
-//       console.log(err1)
-//       console.log(err3)
-//     }
-
-//   })
-
-
-
-
-// });
 
 
 $.ajax({
@@ -216,23 +218,7 @@ function deleteLike(response) {
   }
 }
 
-// $('.deleteForm').on('submit', '.deleteButton', function(e) {
-// $('form').preventDefault()
-// alert('helloo')
-// let deleteID = $(this).attr('data-id')
-// $.ajax({
-//     method: "DELETE",
-//     url: deleteEndpoint,
-//     data: deleteID,
-//     success: function deleteSuccess(response) {
-//       console.log(success)
-//     },
-//     error: function(err1, err2, err3) {
-//       console.log(err1)
-//       console.log(err2)
-//       console.log(err3)
-//     }
-// })
 
-// });
+
+
 

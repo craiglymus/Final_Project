@@ -18,7 +18,7 @@ urlpatterns=[
     path('like', views.like, name='like'),
     path('api/likes', views.sendJsonLikes, name='sendJsonLikes'),
     path('profile', views.profile_view, name='profile_view'),
-    path('delete', views.delete, name='delete'),
+    path('like/<int:pk>/delete', views.delete, name='delete'),
     
 ]
 

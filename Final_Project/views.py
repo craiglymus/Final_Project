@@ -108,11 +108,11 @@ def profile_view(request):
 
 
 @csrf_exempt
-def delete(request):
+def delete(request, pk):
+
   print('entered delete function')
-  gym_delete_id = request.DELETE.get('id')
   if request.method == 'DELETE':
-    gym_delete = Like.objects.filter(id=gym_delete_id, user=request.user.id)
+    gym_delete = Like.objects.filter(id=pk, user=request.user.id)
     gym_delete.delete()
   return HttpResponse('dislike object deleted')
 
