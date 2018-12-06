@@ -7,7 +7,7 @@
     <title>Base</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places" defer></script>
@@ -20,15 +20,20 @@
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <ul class="header">
-          {# Django Home Link / Admin Link / Register Link#}
-          <li><a id="" href="{% url 'index' %}">GymFinder</a></li>
-          <li><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <div class='logoDiv'>
+          <li><a id="Logo" href="{% url 'index' %}">GymFinder</a></li>
+        </div>
+        <div class='otherLinks'>
+          <li><a class="nav-link" href="{% url 'about' %}">About</a></li>  
+          <li><a class="nav-link" href="{% url 'map' %}">Map</a></li>
           <li><a class="nav-link" href="{% url 'register' %}">Register</a></li>     
-          {# Some logic on what to display for last item#}
+          
           {% if request.user.is_authenticated %}
             <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+            </div>
           {% else %}
             <li><a class="nav-link" href="{% url 'user_login' %}">Login</a></li>
+            </div>
           {% endif %}
         </ul>
       </div>

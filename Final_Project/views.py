@@ -73,8 +73,8 @@ def about(request):
 def like(request):
     print('enters like function')
     if request.method == "POST":
-      # if form.is_valid:
-      #   post = form.save(commit=False)
+      if form.is_valid:
+        post = form.save(commit=False)
       print(request.user)
       print('THIS IS THE DATA THAT IS SENT OVER')
       # print(request.body)

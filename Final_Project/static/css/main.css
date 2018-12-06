@@ -10,8 +10,9 @@
 /* =========== */
 
 body{
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
+  background-color: #FDFFF4;
 }
 
 
@@ -21,16 +22,34 @@ body{
 /* ==================== */
 
 .navbar {
-  background: #F5F5F5;
+  background: #225496;
   height: 8rem;
 }
 
 .header {
   display: flex;
-  font-size: 22px;
+  font-size: 24px;
   position: relative;
   margin: 0 auto 0;
   padding-top: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.logoDiv {
+  padding: 1.5em;
+  color: #FDFFF4;
+}
+
+.otherLinks {
+  display:flex;
+  padding-top: 1.5em;
+  padding-right: 1em;
+
+
 }
 
 nav ul {
@@ -45,7 +64,7 @@ nav ul {
 
 .nav-link {
   background: none!important;
-  color: #2a4a6f;
+  color: #FDFFF4;
   border: none; 
   padding: 20px;
   font: inherit;
@@ -59,7 +78,7 @@ ul li{
 
 li a{
   text-decoration: none;
-  color: red;
+  color: #FCFFEB;
 }
 
 #map{
