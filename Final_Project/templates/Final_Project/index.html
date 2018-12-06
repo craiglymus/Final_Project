@@ -1,13 +1,9 @@
 {% extends "Final_Project/base.html" %}
 {% block content %}
 <div class="container">
-  <div class="jumbotron">
-    <h1>LANDING PAGE</h1>
-    {% if user.is_authenticated %}
-        <h2>Hello {{ user.username }}</h2>
-    {% else %}
-        <h2>INSTRUCTIONS</h2>
-    {% endif %}
+  <div class="landingPage">
+    <h1 class='landingPageTitle'>Find A Gym Near You With GymFinder</h1>
+    <img class='heroImage' src="../../static/css/heroimg.png">
   </div>
 </div>
 {% endblock %}

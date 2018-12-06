@@ -2,15 +2,15 @@
 {% block login %}
   <div class="container">
     <div class="jumbotron">
-      <h1>Login here :</h1>
+      <h1 class='registerTitle'>Login Here</h1>
         <form method="post" action="{% url 'user_login' %}">
           {% csrf_token %}
           {# A more "HTML" way of creating the login form#}
-          <label for="username">Username:</label>
-          <input type="text" name="username" placeholder="Username">
-          <label for="password">Password:</label>
-          <input type="password" name="password" placeholder="Password">
-          <input type="submit" name="" value="Login">
+          <label class='usernameLabel' for="username">Username:</label>
+          <input class='loginUsername' type="text" name="username" placeholder="Username">
+          <label class='usernameLabel' for="password">Password:</label>
+          <input  class='loginPassword' type="password" name="password" placeholder="Password">
+          <input id='submitBtn' class='loginButton' type="submit" name="" value="Login">
         </form>
       </div>
     </div>

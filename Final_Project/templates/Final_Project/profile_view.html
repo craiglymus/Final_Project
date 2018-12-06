@@ -8,15 +8,15 @@
     <div class='picNameSubscribe'>
       <div class='profilePicAndInfo'>
       <div class='profilePicture'>
-        <h1>{{user}}</h1>
+        <h1 class='userProfileName'>Hi, {{user}}</h1>
         <img class='profilePic' src='{{ user.profile.profile_pic.url }}' width="auto" height="250px" alt="">
-        <h4>{{user.profile.bio}}</h4>
+        <h4 class="userProfileName">{{user.profile.bio}}</h4>
       </div>
       </div>
     </div>
   </div>
   <div class='profileLikes'>
-    <h2>My Gyms</h2>
+    <h2 class='favoriteGymsTitle'>My Favorite Gyms:</h2>
     <div class='profileContainer'>
 
       {% for like in likes_list %}

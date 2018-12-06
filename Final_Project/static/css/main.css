@@ -92,8 +92,57 @@ li a{
 /* FORM STYLES */
 /* =========== */
 
+.helptext {
+  display: none;
+}
+
+.jumbotron form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registerTitle {
+  text-align: center;
+}
+
+.loginUsername {
+  margin-bottom: 3em;
+  width: 20em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 0.7em;
+}
+
+.loginButton {
+  margin-top: 3em;
+  width: 8em;
+  height: 3em;
+}
+
+.usernameLabel {
+  font-size: 1.5em;
+}
+
+.loginPassword {
+    width: 20em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 0.7em;
+}
 
 
+
+#submitBtn {
+    border-radius: 0.3em;
+    box-shadow: inset 0px 0px 30px 45px #225496 , 0px 0px 0px 0px #225496;
+    color: #FDFFF4;
+    transition:  0.5s, color 0.25s 0.5s;  
+}
+#submitBtn:hover {
+    box-shadow: inset 0px 0px 0px 0px #225496, 0px 0px 22px 12px #225496;
+    color: black;
+}
 /* ============*/
 /* ABOUT STYLES*/
 /* ============*/
@@ -105,7 +154,105 @@ li a{
 /* ==============*/
 /* PROFILE STYLES*/
 /* ==============*/
+.userProfileName {
+  text-align: center;
+}
 
+.favoriteGymsTitle {
+  margin-left: 1em;
+}
 .hiddenMap {
   display: none;
+}
+
+.profilePicAndInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.likeCard {
+  margin-left: 1.4em;
+}
+
+
+.deleteButton {
+  width: 8em;
+  height: 1em;
+  padding: 0.3em;
+  padding-bottom: 1.4em;
+
+}
+
+
+/* =============== */
+/* MAP PAGE STYLES  */
+/* =============== */
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.siteTitle {
+  display: inline-block;
+  border-bottom: 1px solid black;
+}
+
+
+.geoCodingForm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+
+}
+
+.addressBar {
+  width: 20em;
+  height: 2em;
+}
+
+.mapButton {
+  width: 1em;
+  margin-left: 0.2em;
+  font-size: 5em;
+  margin-top: 0.03em;
+}
+
+.favorite {
+  color: gold;
+}
+
+
+/* ==================== */
+/* LANDING PAGE STYLES  */
+/* ==================== */
+
+.landingPageTitle {
+  margin-top: 1em;
+}
+.heroImage {
+ 
+  width: 875px;
+  margin-top: 1em;
+
+}
+
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================== */
+/* ABOUT PAGE STYLES  */
+/* ================== */
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aboutParagraph {
+  padding: 0 2.5em;
+  text-align: center;
 }

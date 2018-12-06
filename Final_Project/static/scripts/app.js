@@ -82,7 +82,7 @@ function addressSuccess(response) {
             position: place.geometry.location
           });
           google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>'  +  `<a class="favorite" href="" data-id=${gym.place_id}><i class="fa fa-star" aria-hidden="true"></i></a>` + '       ' + 'Phone Number ' + place.formatted_phone_number + '<br>' +
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>'  +  `<a class="favorite" href="" data-id='${gym.place_id}'><i class="fa fa-star" aria-hidden="true"></i></a>` + '       ' + 'Phone Number ' + place.formatted_phone_number + '<br>' +
               place.formatted_address +  '<br>' + `<a href=${place.website}> ${place.website} </a>` + '</div>');
             infowindow.open(map, this);
           })
@@ -136,7 +136,7 @@ let $cards = $('.likeCard')
 $cards.each(function () {
   let cardId = $(this).data()
   console.log(cardId)
-  let button = `<button class="deleteButton" data-id=${cardId.id}>DELETE</button>`
+  let button = `<button class="deleteButton" data-id=${cardId.id}>DELETE</button><br><hr class='borderLine'>`
     $(this).append(button);
 
 
