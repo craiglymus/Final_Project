@@ -8,8 +8,9 @@
     <div class='picNameSubscribe'>
       <div class='profilePicAndInfo'>
       <div class='profilePicture'>
-        <h1>{{user.profile_pic}}</h1>
-        <img class='profilePic' src='{{ user.userProfileInfo.profile_pic.url }}' width="auto" height="250px" alt="">
+        <h1>{{user}}</h1>
+        <img class='profilePic' src='{{ user.profile.profile_pic.url }}' width="auto" height="250px" alt="">
+        <h4>{{user.profile.bio}}</h4>
       </div>
       </div>
     </div>

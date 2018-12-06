@@ -113,7 +113,8 @@ function addressSuccess(response) {
 
 
 $('div').on('click', '.favorite', function(e) {
-  e.preventDefault();
+  e.preventDefault(); 
+  alert('You have favorited this gym');
   let gymId = $(this).attr('data-id');
   $.ajax({
     method: 'GET',

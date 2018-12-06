@@ -103,7 +103,7 @@ def profile_view(request):
             likes_list.append(like)
 
     user = request.user
-    print(likes_list)
+    print('HERE Is the user',user)
     return render(request, 'Final_Project/profile_view.html', {'user': user ,'likes_list':likes_list})
 
 
